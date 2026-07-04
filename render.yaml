@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tuneflow
+    runtime: docker
+    plan: free
+    region: oregon
+    branch: main
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ALLOWED_USERS
+        sync: false
+        value: ""
+      - key: MAX_PER_HOUR
+        value: "10"
+      - key: SEARCH_LIMIT
+        value: "5"
+      - key: MAX_FILE_BYTES
+        value: "47185920"
+      - key: MAX_DURATION_SEC
+        value: "600"
+      - key: POLLING
+        value: "true"
+      - key: PORT
+        value: "3000"
+      - key: NODE_ENV
+        value: "production"
